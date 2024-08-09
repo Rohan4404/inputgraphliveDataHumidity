@@ -21,19 +21,21 @@
 
             // Send the temperature to the hosted API
             fetch('https://graphlive-data-humidity-2a9hcjutu-rohan4404s-projects.vercel.app/set-temperature', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ temp: temperature })
-            })
-            .then(response => response.json())
-            .then(data => {
-                alert(data.message); // Show success message
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-            });
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer YOUR_TOKEN_HERE'
+    },
+    body: JSON.stringify({ temp: temperature })
+})
+.then(response => response.json())
+.then(data => {
+    alert(data.message); // Show success message
+})
+.catch((error) => {
+    console.error('Error:', error);
+});
+
         });
     </script>
 </body>
